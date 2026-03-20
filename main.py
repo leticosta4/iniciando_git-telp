@@ -6,11 +6,26 @@ class Calculadora:
     """
 
     @staticmethod
-    def Fibonacci(numero: float) -> float:
-        pass
+    def Fibonacci(numero: int) -> list[int] | str:
+        if numero < 0:
+            raise ValueError("Número deve ser não-negativo.")
+        if numero == 0:
+            return [0]
+        
+        if numero == 1:
+            return [0, 1]
+        
+        a, b = 0, 1
+        fib_sequence = []
+
+        for _ in range(numero + 1):
+            fib_sequence.append(a)
+            a, b = b, a + b
+        return fib_sequence
+
 
     @staticmethod
-    def Fatorial(numero: float) -> float:
+    def Fatorial(numero: int) -> int:
         pass
 
 
@@ -31,7 +46,7 @@ def main():
 
         try:
             numero_str = input("Digite o número: ")
-            numero = float(numero_str)
+            numero = int(numero_str)
         except ValueError:
             print("Entrada inválida. Por favor, digite apenas números.")
             continue
