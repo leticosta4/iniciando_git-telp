@@ -10,8 +10,13 @@ class Calculadora:
         pass
 
     @staticmethod
-    def Fatorial(numero: float) -> float:
-        pass
+    def Fatorial(numero: float) -> float | str:
+        if numero < 0:
+            return "Fatorial não é definido para números negativos."
+        elif numero == 0 or numero == 1:
+            return 1
+        else:
+            return numero * Calculadora.Fatorial(numero - 1)
 
 
 
